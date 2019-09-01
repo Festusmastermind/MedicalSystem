@@ -1,0 +1,72 @@
+{% extends 'ipage.html' %}
+{% load static %}
+
+{% block head %}
+    <title>SSHMAS :: VIEWS APPOINTMENT </title>
+{% endblock %}
+{% block content %}
+
+    <header class="w3-container" style="padding-top:22px">
+        <h5><b><i class="glyphicon glyphicon-stats"></i> My Appointments</b></h5>
+    </header>
+    {% if b %}
+        <div class="w3-container">
+        <div class="well w3-green">
+            <strong>{{ b }}</strong>
+        </div>
+        </div>
+    {% endif %}
+    <div class="w3-container">
+        <div class="panel panel-default">
+            <div class="table-responsive">
+                <table class="table con">
+                    <thead>
+                    <tr>
+                        <th class="w3-text-blue-gray">Doctor </th>
+                        <th class="w3-text-blue-gray">Appointment Time</th>
+                        <th class="w3-text-blue-gray">Appointment Date</th>
+                        <th class="w3-text-blue-gray">Appointment Message</th>
+                        <th class="w3-text-blue-gray">Status</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if v %}
+                                {% for o in v %}
+                    <tr>
+                        <td> {{ o.docfirst }} {{ o.doclast }}</td>
+                        <td>{{ o.apptime }}</td>
+                        <td>{{ o.appdate }}
+                        <td>{{ o.appmessage }}</td>
+                        <td>
+                            {% if o.status == "CONFIRM" %}
+                            <a
+                               class="w3-btn w3-green w3-border w3-round w3-border-green w3-hover-green w3-text-white w3-hover-text-white">
+                                                      <i class="fa fa-edit"></i>   APPROVED</a>
+                            {% endif %}
+                            {% if not o.status %}
+                            <a
+                               class="w3-btn w3-red w3-border w3-round w3-border-red w3-hover-red w3-text-white w3-hover-text-white"> NOT APPROVED</a>
+                            {% endif %}
+                        </td>
+                        <td>
+
+                            <a href="/del_app/{{ o.id }}/"
+                               class="w3-btn w3-red w3-border w3-round w3-border-red w3-hover-red w3-text-white w3-hover-text-white">
+                                 <i class="glyphicon glyphicon-trash"></i> CANCEL</a>
+
+                        </td>
+                    </tr>
+                    <div>
+                    </div>
+                                {% endfor %}
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

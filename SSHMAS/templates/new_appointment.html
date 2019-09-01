@@ -1,0 +1,52 @@
+{% extends 'ipage.html' %}
+{% load static %}
+{% block head %}
+    <title>Create Appointment</title>
+{% endblock %}
+
+{% block content %}
+
+    <body class="w3-theme-l5">
+    <!-- Page Container -->
+    <div class="w3-container w3-content" style="max-width:1400px;">
+        <!-- The Grid -->
+    {% if notavail %}
+        <div class="well w3-red" style="margin-top:50px;">{{ notavail }}</div>
+    {% endif %}
+        <div class="w3-row">
+            <!-- Left Column -->
+            {% if avail %}
+                {% for i in avail %}
+            <div class="w3-col m3">
+                <!-- Profile -->
+                <div class="w3-card w3-round w3-white" style="margin-top:50px;">
+                    <div class="w3-container">
+                        <h4 class="w3-center">{{ i.status }}</h4>
+                        {% if i.image1 %}
+                        <p class="w3-center"><img src="{{ i.image1.url }}" class="w3-circle"
+                                                  style="height:106px;width:106px" alt="Avatar"></p>
+                        {% else %}
+                        <p class="w3-center"><img src="{% static 'images/user.png' %}" class="w3-circle"
+                                                  style="height:106px;width:106px" alt="Avatar"></p>
+                        {% endif %}
+                        <hr>
+                        <p>
+                            <i class="glyphicon glyphicon-user w3-text-grey"></i> <strong>{{ i.firstname }} {{ i.lastname }}</strong>
+                        </p>
+                        <div class="w3-section w3-center">
+                            <a href="{% url 'book' i.id %}"
+                               class="w3-btn w3-white w3-border w3-border-grey w3-hover-white w3-text-grey w3-hover-text-grey">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+                {% endfor %}
+            {% endif %}
+            <!-- End Grid -->
+        </div>
+
+        <!-- End Page Container -->
+    </div>
+
+{% endblock %}

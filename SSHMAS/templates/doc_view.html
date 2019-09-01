@@ -1,0 +1,66 @@
+{% extends 'idoctor.html' %}
+{% load static %}
+
+{% block head %}
+    <title>SSHMAS :: VIEWS APPOINTMENT </title>
+{% endblock %}
+{% block content %}
+
+    <header class="w3-container" style="padding-top:22px">
+        <h5><b><i class="glyphicon glyphicon-th"></i> My Schedule Appointments</b></h5>
+    </header>
+    {% if b %}
+        <div class="w3-container">
+        <div class="well w3-green">
+            <strong>{{ b }}</strong>
+        </div>
+        </div>
+    {% endif %}
+    <div class="w3-container">
+        <div class="panel panel-default">
+            <div class="table-responsive">
+                <table class="table con">
+                    <thead>
+                    <tr>
+                        <th class="w3-text-blue-gray">Patient </th>
+                        <th class="w3-text-blue-gray">Appointment Time</th>
+                        <th class="w3-text-blue-gray">Appointment Date</th>
+                        <th class="w3-text-blue-gray">Appointment Message</th>
+                        <th class="w3-text-blue-gray">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if v %}
+                                {% for o in v %}
+                    <tr>
+                        <td> {{ o.patfirst }} {{ o.patlast }}</td>
+                        <td>{{ o.apptime }}</td>
+                        <td>{{ o.appdate }}
+                        <td>{{ o.appmessage }}</td>
+                        <td>
+                            {% if o.status != "CONFIRM" %}
+                            <form method="post" action="/confirm/{{ o.id }}/">
+                                 {% csrf_token %}
+                                <input type="hidden" name="con" value="CONFIRM">
+                                <input type="submit" value="CONFIRM" class="w3-btn w3-red w3-border w3-round w3-border-red w3-hover-red w3-text-white w3-hover-text-white">
+                            </form>
+                            {% endif %}
+                            {% if o.status == "CONFIRM" %}
+                                <i class="w3-btn w3-green w3-border w3-round w3-border-green w3-hover-green w3-text-white w3-hover-text-white">APPROVED</i>
+                            {% endif %}
+
+                        </td>
+                    </tr>
+                    <div>
+                    </div>
+                                {% endfor %}
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

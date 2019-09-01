@@ -1,0 +1,53 @@
+{% extends 'ms.html' %}
+<!--login-->
+{% load staticfiles %}
+{% block content %}
+
+    <div class="login">
+        <div class="main-agileits w3-border w3-round w3-border-white w3-white">
+            <div class="form-w3agile">
+                <h3>Forget Password</h3>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div id="alertBox" class="w3-{{ message.tags }}">
+                            <button id="bannerClose" class="w3-right w3-text-black w3-large"
+                                    onclick="closeModal('alertBox')"
+                                    style="background-color: transparent; border: none;">&times;
+                            </button>
+                            <div class="w3-center">
+                                <label id="alert" class="w3-text-white w3-large">{{ message }}----><a
+                                        href="{% url 'change_pass' %}"><span class="red">Change</span> </a></label>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                {% if errmsg %}
+                    <div class="w3-panel w3-pink w3-card-4">
+                        <p class=" w3-text-white">{{ errmsg }}</p>
+                    </div>
+                {% endif %}
+                {% if msg %}
+                    <div class="w3-panel w3-red w3-card-4">
+                        <p class=" w3-text-white">{{ msg }}</p>
+                    </div>
+                {% endif %}
+                <div class="w3-panel w3-pink w3-card-4">
+                    <p class=" w3-text-white">Enter your Username for Authentication</p>
+                </div>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="key">
+                        <i class="fa fa-envelrope" aria-hidden="true"></i>
+                        <input type="text" name="username" placeholder="Enter your Email" required
+                               class="form-control">
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="w3-center">
+                        <input type="submit" value="Verify" class="w3-btn w3-pink w3-center">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

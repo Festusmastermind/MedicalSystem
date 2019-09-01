@@ -1,0 +1,123 @@
+{% extends 'ipage.html' %}
+{% load static %}
+{% block head %}
+    <title>SSHMAS :: APPOINTMENT BOOKING</title>
+{% endblock %}
+
+{% block content %}
+    <div class="w3-container w3-content" style="max-width:1400px;">
+
+        <div class="w3-row">
+            <!-- Left Column -->
+            {% if success %}
+                <div class="well w3-green" style="margin-top:50px;margin-bottom: 0px;">
+                    {{ success }}
+                </div>
+            {% endif %}
+
+            <div class="w3-col m3">
+                <!-- Profile -->
+                <div class="w3-card w3-round w3-white" style="margin-top:50px;">
+                    <div class="w3-container">
+                        <h4 class="w3-center"></h4>
+                        <p class="w3-center"><img src="{{ i.image1.url }}" class="w3-circle"
+                                                  style="height:106px;width:106px" alt="Avatar"></p>
+                        <hr>
+                        <p>
+                            <i class="glyphicon glyphicon-user fa-fw w3-text-grey"></i>
+                            <strong>{{ i.firstname }} {{ i.lastname }}</strong>
+                        </p>
+                        <hr>
+                        <p>
+                            <i class="glyphicon glyphicon-th w3-text-grey"></i> <strong>{{ i.speciality }}</strong>
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w3-col m7">
+                <!-- Profile -->
+                <div class="w3-row-padding" style="margin-top:50px;">
+                    <div class="w3-col m12">
+                        <div class="w3-card w3-round w3-white">
+                            <div class="w3-container w3-padding">
+
+                                <form method="post" action="/book/{{ i.id }}/"
+                                      enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="doc" value="{{ i.username }}">
+                                    <input type="hidden" name="first" value="{{ i.firstname }}">
+                                    <input type="hidden" name="last" value="{{ i.lastname }}">
+                                    <div class="form-group">
+                                        <div class="col-md-12 inputGroupContainer">
+                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i
+                                                                        class="glyphicon glyphicon-user"></i> </span>
+                                                <input type="date" name="date_name"
+                                                       required
+                                                       class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12 inputGroupContainer">
+                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i
+                                                                        class="glyphicon glyphicon-user"></i> </span>
+{#                                                <input type="time" name="time_name"#}
+{#                                                       required#}
+{#                                                       class="form-control">#}
+                                                <select class="form-control" name="time_name">
+                                                    <option value="#">----Pick Time----</option>
+                                                    <option value="9:00 - 9:30">9:00 - 9:30</option>
+                                                    <option value="9:30 - 10:00">9:30 - 10:00</option>
+                                                    <option value="10:00 - 10:30">10:00 - 10:30</option>
+                                                    <option value="10:30 - 11:00">10:30 - 11:00</option>
+                                                    <option value="11:00 - 11:30">11:00 - 11:30</option>
+                                                    <option value="11:30 - 12:00">11:00 - 12:00</option>
+                                                    <option value="12:00 - 12:30">12:00 - 12:30</option>
+                                                    <option value="12:30 - 1:00">12:30 - 1:00</option>
+                                                    <option value="1:00 - 1:30">1:00 - 1:30</option>
+                                                    <option value="1:30 - 2:00">1:30 - 2:00</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12 inputGroupContainer">
+                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i
+                                                                        class="glyphicon glyphicon-list"></i> </span>
+                                                <textarea class="form-control" rows="4" id="app_message"
+                                                          name="app_message"
+                                                          placeholder="Kindly give a brief reason for the appointment"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <input type="submit" name="submit"
+                                           class="w3-btn w3-white w3-border w3-border-grey w3-hover-white w3-text-grey w3-hover-text-grey"
+                                           value="Book"
+                                           style="background-color: pink;margin-left: 70%;">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Grid -->
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

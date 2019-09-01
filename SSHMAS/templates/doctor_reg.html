@@ -1,0 +1,1403 @@
+{% extends 'ms.html' %}
+{% load static %}
+{% block head %}
+    <title> SSHMAS || Register </title>
+{% endblock %}
+<!--//header-->
+{% block content %}
+    <div class="login">
+
+        <div class="main-agileits w3-border w3-round w3-border-white w3-white">
+            <div class="form-w3agile">
+                <h5 class="w3-center w3-text-blue-gray" style="font-size: 23px;"> Doctor Registration </h5>
+                <hr>
+                {% if successmsg %}
+                    <div class="well">{{ successmsg }} <a href="{% url 'doc_login' %}">{{ user }}</a></div>
+                {% endif %}
+                {% if errmsg %}
+                    <div class="well w3-red  w3-text-white">{{ errmsg }}</div>
+                {% endif %}
+                <form action="#" method="post" action="/doctor_reg/">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i> </span>
+                                <input type="text" name="firstname" placeholder="Enter your first name" required
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i> </span>
+                                <input type="text" name="lastname" placeholder="Enter your last name" required
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i> </span>
+                                <input type="text" name="email" placeholder="Email" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i> </span>
+                                <input type="text" name="phone" placeholder="Enter your phone number" required
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i> </span>
+                                <input type="text" name="age" placeholder="Enter your Age" required
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i> </span>
+                                <input type="text" name="specialty" placeholder="Enter your Specialty" required
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>
+                                <select class="form-control" name="gender" id="gender" required>
+                                    <option value="#">--- Select Gender -----</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Others..</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>
+                                <select class="form-control" name="state" id="state" required>
+                                    <option value="#">--- Select state -----</option>
+                                    <option value="Abuja">Federal Capital Territory</option>
+                                    <option value="Abia">Abia</option>
+                                    <option value="Adamawa">Adamawa</option>
+                                    <option value="AkwaIbom">Akwa Ibom</option>
+                                    <option value="Anambra">Anambra</option>
+                                    <option value="Bauchi">Bauchi</option>
+                                    <option value="Bayelsa">Bayelsa</option>
+                                    <option value="Benue">Benue</option>
+                                    <option value="Bornu">Bornu</option>
+                                    <option value="CrossRiver">Cross River</option>
+                                    <option value="Delta">Delta</option>
+                                    <option value="Ebonyi">Ebonyi</option>
+                                    <option value="Edo">Edo</option>
+                                    <option value="Ekiti">Ekiti</option>
+                                    <option value="Enugu">Enugu</option>
+                                    <option value="Gombe">Gombe</option>
+                                    <option value="Imo">Imo</option>
+                                    <option value="Jigawa">Jigawa</option>
+                                    <option value="Kaduna">Kaduna</option>
+                                    <option value="Kano">Kano</option>
+                                    <option value="Katsina">Katsina</option>
+                                    <option value="Kebbi">Kebbi</option>
+                                    <option value="Kogi">Kogi</option>
+                                    <option value="Kwara">Kwara</option>
+                                    <option value="Lagos">Lagos</option>
+                                    <option value="Niger">Niger</option>
+                                    <option value="Ogun">Ogun</option>
+                                    <option value="Ondo">Ondo</option>
+                                    <option value="Osun">Osun</option>
+                                    <option value="Oyo">Oyo</option>
+                                    <option value="Plateau">Plateau</option>
+                                    <option value="Rivers">Rivers</option>
+                                    <option value="Sokoto">Sokoto</option>
+                                    <option value="Taraba">Taraba</option>
+                                    <option value="Yobe">Yobe</option>
+                                    <option value="Zamfara">Zamfara</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+{#                    <div class="form-group locs" id="Abuja" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="a" id="a" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Gwagwalada">Gwagwalada</option>#}
+{#                                    <option value="Kuje">Kuje</option>#}
+{#                                    <option value="Abaji">Abaji</option>#}
+{#                                    <option value="Abuja Municipal">Abuja Municipal</option>#}
+{#                                    <option value="Bwari">Bwari</option>#}
+{#                                    <option value="Kwali">Kwali</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Abia" style="display:none">#}
+{#                        <select class="form-control" name="b" id="b" required>#}
+{#                            <option value="#">--- Select local Government -----</option>#}
+{#                            <option value="Aba North">Aba North</option>#}
+{#                            <option value="Aba South">Aba South</option>#}
+{#                            <option value="Arochukwu">Arochukwu</option>#}
+{#                            <option value="Bende">Bende</option>#}
+{#                            <option value="Ikwuano">Ikwuano</option>#}
+{#                            <option value="Isiala-Ngwa North">Isiala-Ngwa North</option>#}
+{#                            <option value="Isiala-Ngwa South">Isiala-Ngwa South</option>#}
+{#                            <option value="Isuikwato">Isuikwato</option>#}
+{#                            <option value="Obi Nwa">Obi Nwa</option>#}
+{#                            <option value="Ohafia">Ohafia</option>#}
+{#                            <option value="Osisioma">Osisioma</option>#}
+{#                            <option value="Ngwa">Ngwa</option>#}
+{#                            <option value="Ugwunagbo">Ugwunagbo</option>#}
+{#                            <option value="Umuahia North">Umuahia North</option>#}
+{#                            <option value="Ukwa West">Ukwa West</option>#}
+{#                            <option value="Umuahia South">Umuahia South</option>#}
+{#                            <option value="Umu-Neochi">Umu-Neochi</option>#}
+{#                        </select>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Adamawa" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="c" id="c" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Demsa">Demsa</option>#}
+{#                                    <option value="Fufore">Fufore</option>#}
+{#                                    <option value="Ganaye">Ganaye</option>#}
+{#                                    <option value="Gireri">Gireri</option>#}
+{#                                    <option value="Gombi">Gombi</option>#}
+{#                                    <option value="Guyuk">Guyuk</option>#}
+{#                                    <option value="Hong">Hong</option>#}
+{#                                    <option value="Jada">Jada</option>#}
+{#                                    <option value="Lamurde">Lamurde</option>#}
+{#                                    <option value="Madagali">Madagali</option>#}
+{#                                    <option value="Maiha">Maiha</option>#}
+{#                                    <option value="Mayo-Belwa">Mayo-Belwa</option>#}
+{#                                    <option value="Mubi North ">Mubi North</option>#}
+{#                                    <option value="Mubi South">Mubi South</option>#}
+{#                                    <option value="Numan">Numan</option>#}
+{#                                    <option value="Shelleng">Shelleng</option>#}
+{#                                    <option value="Song">Song</option>#}
+{#                                    <option value="Toungo">Toungo</option>#}
+{#                                    <option value="Yola North">Yola North</option>#}
+{#                                    <option value="Yola South">Yola South</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="AkwaIbom" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="d" id="d" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Abak">Abak</option>#}
+{#                                    <option value="Eastern Obolo">Eastern Obolo</option>#}
+{#                                    <option value="Eket">Eket</option>#}
+{#                                    <option value="Esit Eket">Esit Eket</option>#}
+{#                                    <option value="Essien Udim">Essien Udim</option>#}
+{#                                    <option value="Etim Ekpo">Etim Ekpo</option>#}
+{#                                    <option value="Etinan">Etinan</option>#}
+{#                                    <option value="Ibeno">Ibeno</option>#}
+{#                                    <option value="Ibesikpo Asutan">Ibesikpo Asutan</option>#}
+{#                                    <option value="Ibiono Ibom">Ibiono Ibom</option>#}
+{#                                    <option value="Ika">Ika</option>#}
+{#                                    <option value="Ikono">Ikono</option>#}
+{#                                    <option value="Ikot Abasi">Ikot Abasi</option>#}
+{#                                    <option value="Ikot Ekpene">Ikot Ekpene</option>#}
+{#                                    <option value="Ini">Ini</option>#}
+{#                                    <option value="Itu">Itu</option>#}
+{#                                    <option value="Mbo">Mbo</option>#}
+{#                                    <option value="Mkpat Enin">Mkpat Enin</option>#}
+{#                                    <option value="Nsit Ibom">Nsit Ibom</option>#}
+{#                                    <option value="Nsit Ubium">Nsit Ubium</option>#}
+{#                                    <option value="Obot Akara">Obot Akara</option>#}
+{#                                    <option value="Okobo">Okobo</option>#}
+{#                                    <option value="Onna">Onna</option>#}
+{#                                    <option value="Oron">Oron</option>#}
+{#                                    <option value="Oruk Anam">Oruk Anam</option>#}
+{#                                    <option value="Udung Uko">Udung Uko</option>#}
+{#                                    <option value="Ukanafun">Ukanafun</option>#}
+{#                                    <option value="Uruan">Uruan</option>#}
+{#                                    <option value="Urue-Offong/Oruko">Urue-Offong/Oruko</option>#}
+{#                                    <option value="Uyo">Uyo</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Anambra" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="e" id="d" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Aguata">Aguata</option>#}
+{#                                    <option value="Anambra East">Anambra East</option>#}
+{#                                    <option value="Anambra West">Anambra West</option>#}
+{#                                    <option value="Anaocha">Anaocha</option>#}
+{#                                    <option value="Awka North">Awka North</option>#}
+{#                                    <option value="Awka South">Awka South</option>#}
+{#                                    <option value="Ayamelum">Ayamelum</option>#}
+{#                                    <option value="Dunukofia">Dunukofia</option>#}
+{#                                    <option value="Ekwusigo">Ekwusigo</option>#}
+{#                                    <option value="Idemili North">Idemili North</option>#}
+{#                                    <option value="Idemili south">Idemili south</option>#}
+{#                                    <option value="Ikono">Ikono</option>#}
+{#                                    <option value="Ikot Abasi">Ikot Abasi</option>#}
+{#                                    <option value="Ikot Ekpene">Ikot Ekpene</option>#}
+{#                                    <option value="hiala">hiala</option>#}
+{#                                    <option value="Njikoka">Njikoka</option>#}
+{#                                    <option value="Nnewi North">Nnewi North</option>#}
+{#                                    <option value="Nnewi South">Nnewi South</option>#}
+{#                                    <option value="Ogbaru">Ogbaru</option>#}
+{#                                    <option value="Onitsha North">Onitsha North</option>#}
+{#                                    <option value="Onitsha South">Onitsha South</option>#}
+{#                                    <option value="Orumba North">Orumba North</option>#}
+{#                                    <option value="Orumba South">Orumba South</option>#}
+{#                                    <option value="Oyi">Oyi</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Bauchi" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="f" id="f" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Alkaleri">Alkaleri</option>#}
+{#                                    <option value="Bauchi">Bauchi</option>#}
+{#                                    <option value="Bogoro">Bogoro</option>#}
+{#                                    <option value="Damban">Damban</option>#}
+{#                                    <option value="Darazo">Darazo</option>#}
+{#                                    <option value="Dass">Dass</option>#}
+{#                                    <option value="Ganjuwa">Ganjuwa</option>#}
+{#                                    <option value="Giade">Giade</option>#}
+{#                                    <option value="Itas/Gadau">Itas/Gadau</option>#}
+{#                                    <option value="Jama'are">Jama'are</option>#}
+{#                                    <option value="Katagum">Katagum</option>#}
+{#                                    <option value="Kirfi">Kirfi</option>#}
+{#                                    <option value="Misau">Misau</option>#}
+{#                                    <option value="Ikot Ekpene">Ikot Ekpene</option>#}
+{#                                    <option value="hiala">hiala</option>#}
+{#                                    <option value="Njikoka">Njikoka</option>#}
+{#                                    <option value="Nnewi North">Nnewi North</option>#}
+{#                                    <option value="Nnewi South">Nnewi South</option>#}
+{#                                    <option value="Ogbaru">Ogbaru</option>#}
+{#                                    <option value="Onitsha North">Onitsha North</option>#}
+{#                                    <option value="Onitsha South">Onitsha South</option>#}
+{#                                    <option value="Orumba North">Orumba North</option>#}
+{#                                    <option value="Orumba South">Orumba South</option>#}
+{#                                    <option value="Oyi">Oyi</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Bayelsa" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="g" id="g" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Brass">Brass</option>#}
+{#                                    <option value="Ekeremor">Ekeremor</option>#}
+{#                                    <option value="Kolokuma/Opokuma">Kolokuma/Opokuma</option>#}
+{#                                    <option value="Nembe">Nembe</option>#}
+{#                                    <option value="Ogbia">Ogbia</option>#}
+{#                                    <option value="Dass">Dass</option>#}
+{#                                    <option value="Sagbama">Sagbama</option>#}
+{#                                    <option value="GiSouthern Jawade">Southern Jaw</option>#}
+{#                                    <option value="Yenegoa">Yenegoa</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Benue" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="h" id="h" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Ado">Ado</option>#}
+{#                                    <option value="Agatu">Agatu</option>#}
+{#                                    <option value="Apa">Apa</option>#}
+{#                                    <option value="Buruku">Buruku</option>#}
+{#                                    <option value="Gboko">Gboko</option>#}
+{#                                    <option value="Guma">Guma</option>#}
+{#                                    <option value="Gwer East">Gwer East</option>#}
+{#                                    <option value="Gwer West">Gwer West</option>#}
+{#                                    <option value="Katsina-Ala">Katsina-Ala</option>#}
+{#                                    <option value="Konshisha">Konshisha</option>#}
+{#                                    <option value="Kwande">Kwande</option>#}
+{#                                    <option value="Logo ">Logo</option>#}
+{#                                    <option value="Makurdi ">Makurdi</option>#}
+{#                                    <option value="Obi ">Obi</option>#}
+{#                                    <option value="Ogbadibo ">Ogbadibo</option>#}
+{#                                    <option value="Oju ">Oju</option>#}
+{#                                    <option value="Okpokwu">Okpokwu</option>#}
+{#                                    <option value="Ohimini ">Ohimini</option>#}
+{#                                    <option value="Oturkpo ">Oturkpo</option>#}
+{#                                    <option value="Tarka ">Tarka</option>#}
+{#                                    <option value="Ukum ">Ukum</option>#}
+{#                                    <option value="Ushongo ">Ushongo</option>#}
+{#                                    <option value="Vandeikya">Vandeikya</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Bornu" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="i" id="i" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Abadam">Abadam</option>#}
+{#                                    <option value="Askira/Uba">Askira/Uba</option>#}
+{#                                    <option value="Bama ">Bama</option>#}
+{#                                    <option value="Bayo ">Bayo</option>#}
+{#                                    <option value="Biu ">Biu</option>#}
+{#                                    <option value="Chibok ">Chibok</option>#}
+{#                                    <option value="Damboa ">Damboa</option>#}
+{#                                    <option value="Gwer West">Gwer West</option>#}
+{#                                    <option value="Dikwa ">Dikwa</option>#}
+{#                                    <option value="Gubio ">Gubio</option>#}
+{#                                    <option value="Guzamala ">Guzamala</option>#}
+{#                                    <option value="Gwoza  ">Gwoza</option>#}
+{#                                    <option value="Hawul">Hawul</option>#}
+{#                                    <option value="Jere ">Jere</option>#}
+{#                                    <option value="Kaga ">Kaga</option>#}
+{#                                    <option value="Kala/Balge ">Kala/Balge</option>#}
+{#                                    <option value="Konduga">Konduga</option>#}
+{#                                    <option value="Kukawa ">Kukawa</option>#}
+{#                                    <option value="Kwaya Kusar ">Kwaya Kusar</option>#}
+{#                                    <option value="Mafa ">Mafa</option>#}
+{#                                    <option value="Magumeri ">Magumeri</option>#}
+{#                                    <option value="Maiduguri ">Maiduguri</option>#}
+{#                                    <option value="Marte">Marte</option>#}
+{#                                    <option value="Mobbar ">Mobbar</option>#}
+{#                                    <option value="Monguno">Monguno</option>#}
+{#                                    <option value="Ngala">Ngala</option>#}
+{#                                    <option value="Nganzai ">Nganzai</option>#}
+{#                                    <option value="Shani ">Shani</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="CrossRiver" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="j" id="j" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Akpabuyo ">Akpabuyo</option>#}
+{#                                    <option value="Odukpani ">Odukpani</option>#}
+{#                                    <option value="Akamkpa ">Akamkpa</option>#}
+{#                                    <option value="Biase ">Biase</option>#}
+{#                                    <option value="Abi ">Abi</option>#}
+{#                                    <option value="Ikom ">Ikom</option>#}
+{#                                    <option value="Yarkur ">Yarkur</option>#}
+{#                                    <option value="Odubra">Odubra</option>#}
+{#                                    <option value="Boki ">Boki</option>#}
+{#                                    <option value="Ogoja ">Ogoja</option>#}
+{#                                    <option value="Yala ">Yala</option>#}
+{#                                    <option value="Obanliku  ">Obanliku</option>#}
+{#                                    <option value="Obudu ">Obudu</option>#}
+{#                                    <option value="Calabar South ">Calabar South</option>#}
+{#                                    <option value="Etung ">Etung</option>#}
+{#                                    <option value="Bekwara ">Bekwara</option>#}
+{#                                    <option value="Bakassi">Bakassi</option>#}
+{#                                    <option value="Calabar Municipality ">Calabar Municipality</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Delta" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="k" id="k" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Oshimili">Oshimili</option>#}
+{#                                    <option value="Aniocha">Aniocha</option>#}
+{#                                    <option value="Aniocha South">Aniocha South</option>#}
+{#                                    <option value="Ika South">Ika South</option>#}
+{#                                    <option value="Ika North-East">Ika North-East</option>#}
+{#                                    <option value="Ndokwa West">Ndokwa West</option>#}
+{#                                    <option value="Ndokwa East">Ndokwa East</option>#}
+{#                                    <option value="Isoko south">Isoko south</option>#}
+{#                                    <option value="Isoko North ">Isoko North</option>#}
+{#                                    <option value="Bomadi ">Bomadi</option>#}
+{#                                    <option value="Burutu ">Burutu</option>#}
+{#                                    <option value="Ughelli South ">Ughelli South</option>#}
+{#                                    <option value="Ughelli North ">Ughelli North</option>#}
+{#                                    <option value="Ethiope West">Ethiope West</option>#}
+{#                                    <option value="Ethiope East ">Ethiope East</option>#}
+{#                                    <option value="Sapele">Sapele</option>#}
+{#                                    <option value="Okpe">Okpe</option>#}
+{#                                    <option value="Warri North">Warri North</option>#}
+{#                                    <option value="Warri South ">Warri South</option>#}
+{#                                    <option value="Uvwie ">Uvwie</option>#}
+{#                                    <option value="Udu ">Udu</option>#}
+{#                                    <option value="Warri Central ">Warri Central</option>#}
+{#                                    <option value="Ukwani ">Ukwani</option>#}
+{#                                    <option value="Oshimili North ">Oshimili North</option>#}
+{#                                    <option value="Patani">Patani</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Ebonyi" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="l" id="l" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Afikpo South ">Afikpo South</option>#}
+{#                                    <option value="Afikpo North ">Afikpo North</option>#}
+{#                                    <option value="Aniocha South ">Aniocha South</option>#}
+{#                                    <option value="Onicha ">Onicha</option>#}
+{#                                    <option value="Ohaozara ">Ohaozara</option>#}
+{#                                    <option value="Abakaliki ">Abakaliki</option>#}
+{#                                    <option value="Ishielu ">Ishielu</option>#}
+{#                                    <option value="lkwo ">lkwo</option>#}
+{#                                    <option value="Ezza ">Ezza</option>#}
+{#                                    <option value="Ezza South ">Ezza South</option>#}
+{#                                    <option value="Ohaukwu ">Ohaukwu</option>#}
+{#                                    <option value="Ebonyi ">Ebonyi</option>#}
+{#                                    <option value="Ivo ">Ivo</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Edo" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="m" id="m" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Esan North-East">Esan North-East</option>#}
+{#                                    <option value="Esan Central">Esan Central</option>#}
+{#                                    <option value="Esan West">Esan West</option>#}
+{#                                    <option value="Egor">Egor</option>#}
+{#                                    <option value="Ukpoba ">Ukpoba</option>#}
+{#                                    <option value="Central ">Central</option>#}
+{#                                    <option value="Etsako Central">Etsako Central</option>#}
+{#                                    <option value="Igueben">Igueben</option>#}
+{#                                    <option value="Oredo">Oredo</option>#}
+{#                                    <option value="Ovia SouthWest">Ovia SouthWest</option>#}
+{#                                    <option value="Ovia South-East">Ovia South-East</option>#}
+{#                                    <option value="Orhionwon ">Orhionwon</option>#}
+{#                                    <option value="Uhunmwonde">Uhunmwonde</option>#}
+{#                                    <option value="Etsako East ">Etsako East</option>#}
+{#                                    <option value="Esan South-East">Esan South-East</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Ekiti" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="n" id="n" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Ado">Ado</option>#}
+{#                                    <option value="Ekiti-East">Ekiti-East</option>#}
+{#                                    <option value="Ekiti-West">Ekiti-West</option>#}
+{#                                    <option value="Emure/Ise/Orun">Emure/Ise/Orun</option>#}
+{#                                    <option value="Ekiti South-West ">Ekiti South-West</option>#}
+{#                                    <option value="Ikare">Ikare</option>#}
+{#                                    <option value="Irepodun ">Irepodun</option>#}
+{#                                    <option value="Ijero">Ijero</option>#}
+{#                                    <option value="Ido/Osi">Ido/Osi</option>#}
+{#                                    <option value="Oye ">Oye</option>#}
+{#                                    <option value="Ikole ">Ikole</option>#}
+{#                                    <option value="Moba ">Moba</option>#}
+{#                                    <option value="Gbonyin ">Gbonyin</option>#}
+{#                                    <option value="Efon ">Efon</option>#}
+{#                                    <option value="Ise/Orun">Ise/Orun</option>#}
+{#                                    <option value="Ise/Orun">Ise/Orun</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Enugu" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="o" id="o" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Enugu South">Enugu South</option>#}
+{#                                    <option value="Igbo-Eze South">Igbo-Eze South</option>#}
+{#                                    <option value="Enugu North">Enugu North</option>#}
+{#                                    <option value="Nkanu">Nkanu</option>#}
+{#                                    <option value="Udi Agwu">Udi Agwu</option>#}
+{#                                    <option value="Oji-River">Oji-River</option>#}
+{#                                    <option value="Ezeagu">Ezeagu</option>#}
+{#                                    <option value="IgboEze North">IgboEze North</option>#}
+{#                                    <option value="Isi-Uzo">Isi-Uzo</option>#}
+{#                                    <option value="Nsukka">Nsukka</option>#}
+{#                                    <option value="Igbo-Ekiti ">Igbo-Ekiti</option>#}
+{#                                    <option value="Uzo-Uwani ">Uzo-Uwani</option>#}
+{#                                    <option value="Enugu East ">Enugu East</option>#}
+{#                                    <option value="Aninri ">Aninri</option>#}
+{#                                    <option value="Nkanu East">Nkanu East</option>#}
+{#                                    <option value="Udenu">Udenu</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Gombe" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="p" id="p" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Akko">Akko</option>#}
+{#                                    <option value="Balanga">Balanga</option>#}
+{#                                    <option value="Billiri">Billiri</option>#}
+{#                                    <option value="Dukku">Dukku</option>#}
+{#                                    <option value="Kaltungo">Kaltungo</option>#}
+{#                                    <option value="Kwami">Kwami</option>#}
+{#                                    <option value="Shomgom">Shomgom</option>#}
+{#                                    <option value="Funakaye">Funakaye</option>#}
+{#                                    <option value="Gombe">Gombe</option>#}
+{#                                    <option value="Nafada/Bajoga">Nafada/Bajoga</option>#}
+{#                                    <option value="Yamaltu/Delta">Yamaltu/Delta</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Imo" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="q" id="q" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Aboh-Mbaise">Aboh-Mbaise</option>#}
+{#                                    <option value="Ahiazu-Mbaise">Ahiazu-Mbaise</option>#}
+{#                                    <option value="Ehime-Mbano ">Ehime-Mbano</option>#}
+{#                                    <option value="Ezinihitte ">Ezinihitte</option>#}
+{#                                    <option value="Ideato North">Ideato North</option>#}
+{#                                    <option value="Ideato South">Ideato South</option>#}
+{#                                    <option value="Ihitte/Uboma">Ihitte/Uboma</option>#}
+{#                                    <option value="Ikeduru">Ikeduru</option>#}
+{#                                    <option value="Isiala Mbano">Isiala Mbano</option>#}
+{#                                    <option value="Isu">Isu</option>#}
+{#                                    <option value="Mbaitoli">Mbaitoli</option>#}
+{#                                    <option value="Ngor-Okpala">Ngor-Okpala</option>#}
+{#                                    <option value="Ahiazu-Mbaise">Ahiazu-Mbaise</option>#}
+{#                                    <option value="Njaba">Njaba</option>#}
+{#                                    <option value="Nwangele">Nwangele</option>#}
+{#                                    <option value="Nkwerre">Nkwerre</option>#}
+{#                                    <option value="Obowo">Obowo</option>#}
+{#                                    <option value="Oguta">Oguta</option>#}
+{#                                    <option value="Ohaji/Egbema">Ohaji/Egbema</option>#}
+{#                                    <option value="Okigwe">Okigwe</option>#}
+{#                                    <option value="Orlu">Orlu</option>#}
+{#                                    <option value="Orsu">Orsu</option>#}
+{#                                    <option value="Oru East">Oru East</option>#}
+{#                                    <option value="Oru West">Oru West</option>#}
+{#                                    <option value="Owerri-Municipal">Owerri-Municipal</option>#}
+{#                                    <option value="Owerri North">Owerri North</option>#}
+{#                                    <option value="Owerri West">Owerri West</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Jigawa" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="r" id="r" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Auyo">Auyo</option>#}
+{#                                    <option value="Babura">Babura</option>#}
+{#                                    <option value="Birni Kudu">Birni Kudu</option>#}
+{#                                    <option value="Biriniwa ">Biriniwa</option>#}
+{#                                    <option value="Buji">Buji</option>#}
+{#                                    <option value="Dutse">Dutse</option>#}
+{#                                    <option value="Gagarawa">Gagarawa</option>#}
+{#                                    <option value="Garki">Garki</option>#}
+{#                                    <option value="Gumel">Gumel</option>#}
+{#                                    <option value="Isu">Isu</option>#}
+{#                                    <option value="Gwaram">Gwaram</option>#}
+{#                                    <option value="Gwiwa">Gwiwa</option>#}
+{#                                    <option value="Hadejia">Hadejia</option>#}
+{#                                    <option value="Jahun">Jahun</option>#}
+{#                                    <option value="Kafin Hausa">Kafin Hausa</option>#}
+{#                                    <option value="Kaugama Kazaure">Kaugama Kazaure</option>#}
+{#                                    <option value="Kiri Kasamma">Kiri Kasamma</option>#}
+{#                                    <option value="Kiyawa">Kiyawa</option>#}
+{#                                    <option value="Maigatari">Maigatari</option>#}
+{#                                    <option value="Malam Madori">Malam Madori</option>#}
+{#                                    <option value="Miga">Miga</option>#}
+{#                                    <option value="Ringim">Ringim</option>#}
+{#                                    <option value="Roni">Roni</option>#}
+{#                                    <option value="Sule-Tankarkar">Sule-Tankarkar</option>#}
+{#                                    <option value="Taura">Taura</option>#}
+{#                                    <option value="Yankwashi">Yankwashi</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Kaduna" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="s" id="s" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Birni-Gwari">Birni-Gwari</option>#}
+{#                                    <option value="Chikun">Chikun</option>#}
+{#                                    <option value="Giwa">Giwa</option>#}
+{#                                    <option value="Igabi">Igabi</option>#}
+{#                                    <option value="Ikara">Ikara</option>#}
+{#                                    <option value="jaba">jaba</option>#}
+{#                                    <option value="Jema'a">Jema'a</option>#}
+{#                                    <option value="Kachia">Kachia</option>#}
+{#                                    <option value="Kaduna North">Kaduna North</option>#}
+{#                                    <option value="Kaduna South">Kaduna South</option>#}
+{#                                    <option value="Kagarko">Kagarko</option>#}
+{#                                    <option value="Kajuru">Kajuru</option>#}
+{#                                    <option value="Kaura">Kaura</option>#}
+{#                                    <option value="Kauru">Kauru</option>#}
+{#                                    <option value="Kubau">Kubau</option>#}
+{#                                    <option value="Kudan">Kudan</option>#}
+{#                                    <option value="Lere">Lere</option>#}
+{#                                    <option value="Makarfi">Makarfi</option>#}
+{#                                    <option value="Sabon-Gari">Sabon-Gari</option>#}
+{#                                    <option value="Sanga">Sanga</option>#}
+{#                                    <option value="Soba">Soba</option>#}
+{#                                    <option value="Zango-Kataf">Zango-Kataf</option>#}
+{#                                    <option value="Zaria">Zaria</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Kano" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="t" id="t" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Ajingi">Ajingi</option>#}
+{#                                    <option value="Albasu">Albasu</option>#}
+{#                                    <option value="Bagwai">Bagwai</option>#}
+{#                                    <option value="Bebeji">Bebeji</option>#}
+{#                                    <option value="Bichi">Bichi</option>#}
+{#                                    <option value="Bunkure">Bunkure</option>#}
+{#                                    <option value="Dala">Dala</option>#}
+{#                                    <option value="Dambatta">Dambatta</option>#}
+{#                                    <option value="Dawakin Kudu">Dawakin Kudu</option>#}
+{#                                    <option value="Dawakin Tofa">Dawakin Tofa</option>#}
+{#                                    <option value="Doguwa ">Doguwa</option>#}
+{#                                    <option value="Fagge ">Fagge</option>#}
+{#                                    <option value="Gabasawa ">Gabasawa</option>#}
+{#                                    <option value="Garko ">Garko</option>#}
+{#                                    <option value="Garum ">Garum</option>#}
+{#                                    <option value="Mallam ">Mallam</option>#}
+{#                                    <option value="Gaya ">Gaya</option>#}
+{#                                    <option value="Gezawa ">Gezawa</option>#}
+{#                                    <option value="Gwale ">Gwale</option>#}
+{#                                    <option value="Gwarzo ">Gwarzo</option>#}
+{#                                    <option value="Kabo ">Kabo</option>#}
+{#                                    <option value="Kano Municipal">Kano Municipal</option>#}
+{#                                    <option value="Karaye ">Karaye</option>#}
+{#                                    <option value="Kibiya ">Kibiya</option>#}
+{#                                    <option value="Kiru ">Kiru</option>#}
+{#                                    <option value="kumbotso ">kumbotso</option>#}
+{#                                    <option value="Kunchi ">Kunchi</option>#}
+{#                                    <option value="Kura ">Kura</option>#}
+{#                                    <option value="Madobi ">Makoda</option>#}
+{#                                    <option value="Minjibir">Minjibir</option>#}
+{#                                    <option value="Nasarawa">Nasarawa</option>#}
+{#                                    <option value="Rano">Rano</option>#}
+{#                                    <option value="Rimin Gado ">Rimin Gado</option>#}
+{#                                    <option value="Rogo ">Rogo</option>#}
+{#                                    <option value="Shanono">Shanono</option>#}
+{#                                    <option value="Sumaila ">Sumaila</option>#}
+{#                                    <option value="Takali">Takali</option>#}
+{#                                    <option value="Tarauni ">Tarauni</option>#}
+{#                                    <option value="Tofa">Tofa</option>#}
+{#                                    <option value="Tudun Wada">Tudun Wada</option>#}
+{#                                    <option value="Ungogo">Ungogo</option>#}
+{#                                    <option value="Warawa">Warawa</option>#}
+{#                                    <option value="Wudil">Wudil</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Katsina" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="u" id="u" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Bakori">Bakori</option>#}
+{#                                    <option value="Batagarawa">Batagarawa</option>#}
+{#                                    <option value="Batsari">Batsari</option>#}
+{#                                    <option value="Baure">Baure</option>#}
+{#                                    <option value="Bindawa">Bindawa</option>#}
+{#                                    <option value="Charanchi">Charanchi</option>#}
+{#                                    <option value="Dandume">Dandume</option>#}
+{#                                    <option value="Danja">Danja</option>#}
+{#                                    <option value="Dan Musa">Dan Musa</option>#}
+{#                                    <option value="Daura">Daura</option>#}
+{#                                    <option value="Dutsi">Dutsi</option>#}
+{#                                    <option value="Dutsin-Ma ">Dutsin-Ma</option>#}
+{#                                    <option value="Faskari ">Faskari</option>#}
+{#                                    <option value="Funtua ">Funtua</option>#}
+{#                                    <option value="Ingawa">Ingawa</option>#}
+{#                                    <option value="Jibia">Jibia</option>#}
+{#                                    <option value="Kafur ">Kafur</option>#}
+{#                                    <option value="Kaita ">Kaita</option>#}
+{#                                    <option value="Kankara">Kankara</option>#}
+{#                                    <option value="Kankia">Kankia</option>#}
+{#                                    <option value="Katsina ">Katsina</option>#}
+{#                                    <option value="Kurfi">Kurfi</option>#}
+{#                                    <option value="Kusada ">Kusada</option>#}
+{#                                    <option value="Mai'Adua ">Mai'Adua</option>#}
+{#                                    <option value="Malumfashi ">Malumfashi</option>#}
+{#                                    <option value="Mani ">Mani</option>#}
+{#                                    <option value="Mashi ">Mashi</option>#}
+{#                                    <option value="Matazuu ">Matazuu</option>#}
+{#                                    <option value="Musawa">Musawa</option>#}
+{#                                    <option value="Rimi">Rimi</option>#}
+{#                                    <option value="Sabuwa">Sabuwa</option>#}
+{#                                    <option value="Safana ">Safana</option>#}
+{#                                    <option value="Sandamu">Sandamu</option>#}
+{#                                    <option value="Zango">Zango</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Kebbi" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="v" id="v" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Aleiro">Aleiro</option>#}
+{#                                    <option value="Arewa-Dandi">Arewa-Dandi</option>#}
+{#                                    <option value="Argungu">Argungu</option>#}
+{#                                    <option value="Augie">Augie</option>#}
+{#                                    <option value="Bagudo">Bagudo</option>#}
+{#                                    <option value="Birnin Kebbi">Birnin Kebbi</option>#}
+{#                                    <option value="Bunza">Bunza</option>#}
+{#                                    <option value="Dandi">Dandi</option>#}
+{#                                    <option value="Fakai">Fakai</option>#}
+{#                                    <option value="Gwandu">Gwandu</option>#}
+{#                                    <option value="Jega">Jega</option>#}
+{#                                    <option value="Kalgo ">Kalgo</option>#}
+{#                                    <option value="Koko/Besse">Koko/Besse</option>#}
+{#                                    <option value="Maiyama">Maiyama</option>#}
+{#                                    <option value="Ngaski">Ngaski</option>#}
+{#                                    <option value="Sakaba">Sakaba</option>#}
+{#                                    <option value="Shanga">Shanga</option>#}
+{#                                    <option value="Suru">Suru</option>#}
+{#                                    <option value="Wasagu/Danko">Wasagu/Danko</option>#}
+{#                                    <option value="Yauri">Yauri</option>#}
+{#                                    <option value="Zuru ">Zuru</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Kogi" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="w" id="w" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Adavi">Adavi</option>#}
+{#                                    <option value="Ajaokuta">Ajaokuta</option>#}
+{#                                    <option value="Ankpa">Ankpa</option>#}
+{#                                    <option value="Bassa">Bassa</option>#}
+{#                                    <option value="Dekina">Dekina</option>#}
+{#                                    <option value="Ibaji">Ibaji</option>#}
+{#                                    <option value="Idah">Idah</option>#}
+{#                                    <option value="Igalamela-Odolu">Igalamela-Odolu</option>#}
+{#                                    <option value="Ijumu">Ijumu</option>#}
+{#                                    <option value="Kabba/Bunu">Kabba/Bunu</option>#}
+{#                                    <option value="Kogi">Kogi</option>#}
+{#                                    <option value="Lokoja">Lokoja</option>#}
+{#                                    <option value="Mopa-Muro">Mopa-Muroe</option>#}
+{#                                    <option value="Ofu">Ofu</option>#}
+{#                                    <option value="Ogori/Mangongo">Ogori/Mangongo</option>#}
+{#                                    <option value="Okehi ">Okehi</option>#}
+{#                                    <option value="Okene">Okene</option>#}
+{#                                    <option value="Olamabolo">Olamabolo</option>#}
+{#                                    <option value="Omala">Omala</option>#}
+{#                                    <option value="Yagba East ">Yagba East</option>#}
+{#                                    <option value="Yagba West">Yagba West</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Kwara" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="x" id="x" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Asa ">Asa</option>#}
+{#                                    <option value="Baruten ">Baruten</option>#}
+{#                                    <option value="Ekiti ">Ekiti</option>#}
+{#                                    <option value="Edu ">Edu</option>#}
+{#                                    <option value="Ifelodun ">Ifelodun</option>#}
+{#                                    <option value="Ilorin East">Ilorin East</option>#}
+{#                                    <option value="Ilorin West">Ilorin West</option>#}
+{#                                    <option value="Irepodun ">Irepodun</option>#}
+{#                                    <option value="Isin">Isin</option>#}
+{#                                    <option value="Kaiama">Kaiama</option>#}
+{#                                    <option value="Moro">Moro</option>#}
+{#                                    <option value="Offa">Offa</option>#}
+{#                                    <option value="Oke-Ero">Oke-Ero</option>#}
+{#                                    <option value="Oyun">Oyun</option>#}
+{#                                    <option value="Pategi">Pategi</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Lagos" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="y" id="y" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Agege">Agege</option>#}
+{#                                    <option value="Ajeromi-Ifelodun">Ajeromi-Ifelodun</option>#}
+{#                                    <option value="Alimosho ">Alimosho</option>#}
+{#                                    <option value="Amuwo-Odofin ">Amuwo-Odofin</option>#}
+{#                                    <option value="Apapa ">Apapa</option>#}
+{#                                    <option value="Badagry">Badagryt</option>#}
+{#                                    <option value="Epe">Epe</option>#}
+{#                                    <option value="Eti-Osa ">Eti-Osa</option>#}
+{#                                    <option value="Ibeju/Lekki">Ibeju/Lekki</option>#}
+{#                                    <option value="Ifako-Ijaye">Ifako-Ijaye</option>#}
+{#                                    <option value="Ikeja">Ikeja</option>#}
+{#                                    <option value="Ikorodu">Ikorodu</option>#}
+{#                                    <option value="Kosofe">Kosofe</option>#}
+{#                                    <option value="Lagos Island">Lagos Island</option>#}
+{#                                    <option value="Lagos Mainland">Lagos Mainland</option>#}
+{#                                    <option value="Mushin ">Mushin</option>#}
+{#                                    <option value="Ojo">Ojo</option>#}
+{#                                    <option value="Oshodi-Isolo">Oshodi-Isolo</option>#}
+{#                                    <option value="Shomolu">Shomolu</option>#}
+{#                                    <option value="Surulere">Surulere</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Nasarawa" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="z" id="z" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Akwanga">Akwanga</option>#}
+{#                                    <option value="Awe">Awe</option>#}
+{#                                    <option value="Doma ">Doma</option>#}
+{#                                    <option value="Karu">Karu</option>#}
+{#                                    <option value="Keana ">Keana</option>#}
+{#                                    <option value="Keffi">Keffi</option>#}
+{#                                    <option value="Kokona">Kokona</option>#}
+{#                                    <option value="Lafia">Lafia</option>#}
+{#                                    <option value="Nasarawa">Nasarawa</option>#}
+{#                                    <option value="Nasarawa-Eggon">Nasarawa-Eggon</option>#}
+{#                                    <option value="Obi">Obi</option>#}
+{#                                    <option value="Toto">Toto</option>#}
+{#                                    <option value="Wamba">Wamba</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Niger" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="ab" id="ab" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Agaie">Agaie</option>#}
+{#                                    <option value="Agwara">Agwara</option>#}
+{#                                    <option value="Bida ">Bida</option>#}
+{#                                    <option value="Borgu">Borgu</option>#}
+{#                                    <option value="Bosso ">Bosso</option>#}
+{#                                    <option value="Chanchaga">Chanchaga</option>#}
+{#                                    <option value="Edati">Edati</option>#}
+{#                                    <option value="Gbako">Gbako</option>#}
+{#                                    <option value="Gurara">Gurara</option>#}
+{#                                    <option value="Katcha">Katcha</option>#}
+{#                                    <option value="Kontagora">Kontagora</option>#}
+{#                                    <option value="Lapai">Lapai</option>#}
+{#                                    <option value="Lavun">Lavun</option>#}
+{#                                    <option value="Magama ">Magama</option>#}
+{#                                    <option value="Mariga">Mariga</option>#}
+{#                                    <option value="Mashegu ">Mashegu</option>#}
+{#                                    <option value="Mokwa">Mokwa</option>#}
+{#                                    <option value="Muya">Muya</option>#}
+{#                                    <option value="Pailoro">Pailoro</option>#}
+{#                                    <option value="Rafi">Rafi</option>#}
+{#                                    <option value="Rijau">Rijau</option>#}
+{#                                    <option value="Shiroro">Shiroro</option>#}
+{#                                    <option value="Suleja">Suleja</option>#}
+{#                                    <option value="Tafa">Tafa</option>#}
+{#                                    <option value="Wushishi">Wushishi</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Ogun" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="ac" id="ac" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Abeokuta North">Abeokuta North</option>#}
+{#                                    <option value="Abeokuta South">Abeokuta South</option>#}
+{#                                    <option value="Ado-Odo/Ota">Ado-Odo/Ota</option>#}
+{#                                    <option value="Egbado North">Egbado North</option>#}
+{#                                    <option value="Egbado South ">Egbado South</option>#}
+{#                                    <option value="Ewekoro">Ewekoro</option>#}
+{#                                    <option value="Ifo">Ifo</option>#}
+{#                                    <option value="Ijebu East">Ijebu East</option>#}
+{#                                    <option value="Ijebu North">Ijebu North</option>#}
+{#                                    <option value="Ijebu North East">Ijebu North East</option>#}
+{#                                    <option value="Ijebu Ode">Ijebu Ode</option>#}
+{#                                    <option value="Ikenne">Ikenne</option>#}
+{#                                    <option value="Imeko-Afon">Imeko-Afon</option>#}
+{#                                    <option value="Ipokia ">Ipokia</option>#}
+{#                                    <option value="Obafemi-Owode">Obafemi-Owode</option>#}
+{#                                    <option value="Ogun Waterside ">Ogun Waterside</option>#}
+{#                                    <option value="Odeda">Odeda</option>#}
+{#                                    <option value="Odogbolu">Odogbolu</option>#}
+{#                                    <option value="Remo North">Remo North</option>#}
+{#                                    <option value="Shagamu">Shagamu</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Ondo" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="ad" id="ad" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Akoko North East">Akoko North East</option>#}
+{#                                    <option value="Akoko North West">Akoko North West</option>#}
+{#                                    <option value="Akoko South Akure East">Akoko South Akure East</option>#}
+{#                                    <option value="Akoko South West">Akoko South West</option>#}
+{#                                    <option value="Akure North">Akure North</option>#}
+{#                                    <option value="Akure South">Akure South</option>#}
+{#                                    <option value="Ese-Odo">Ese-Odo</option>#}
+{#                                    <option value="Idanre">Idanre</option>#}
+{#                                    <option value="Ifedore">Ifedore</option>#}
+{#                                    <option value="Ilaje">Ilaje</option>#}
+{#                                    <option value="Ile-Oluji ">Ile-Oluji</option>#}
+{#                                    <option value="Okeigbo">Okeigbo</option>#}
+{#                                    <option value="Irele">Irele</option>#}
+{#                                    <option value="Odigbo ">Odigbo</option>#}
+{#                                    <option value="Okitipupa">Okitipupa</option>#}
+{#                                    <option value="Ondo East">Ondo East</option>#}
+{#                                    <option value="Ondo West">Ondo West</option>#}
+{#                                    <option value="Ose">Ose</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Osun" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="ae" id="ae" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Aiyedade">Aiyedade</option>#}
+{#                                    <option value="Aiyedire">Aiyedire</option>#}
+{#                                    <option value="Atakumosa East ">Atakumosa East</option>#}
+{#                                    <option value="Atakumosa West">Atakumosa West</option>#}
+{#                                    <option value="Boluwaduro ">Boluwaduro</option>#}
+{#                                    <option value="Boripe">Boripe</option>#}
+{#                                    <option value="Ede North">Ede North</option>#}
+{#                                    <option value="Ede South">Ede South</option>#}
+{#                                    <option value="Egbedore">Egbedore</option>#}
+{#                                    <option value="Ejigbo">Ejigbo</option>#}
+{#                                    <option value="Ife Central">Ife Central</option>#}
+{#                                    <option value="Ife East">Ife East</option>#}
+{#                                    <option value="Ife North">Ife North</option>#}
+{#                                    <option value="Ife South ">Ife South</option>#}
+{#                                    <option value="Ifedayo">Ifedayo</option>#}
+{#                                    <option value="Ifelodun ">Ifelodun</option>#}
+{#                                    <option value="Ila">Ila</option>#}
+{#                                    <option value="Ilesha East">Ilesha East</option>#}
+{#                                    <option value="Ilesha West">Ilesha West</option>#}
+{#                                    <option value="Irepodun">Irepodun</option>#}
+{#                                    <option value="Irewole">Irewole</option>#}
+{#                                    <option value="Isokan">Isokan</option>#}
+{#                                    <option value="Iwo">Iwo</option>#}
+{#                                    <option value="Obokun">Obokun</option>#}
+{#                                    <option value="Odo-Otin">Odo-Otin</option>#}
+{#                                    <option value="Ola-Oluwa ">Ola-Oluwa</option>#}
+{#                                    <option value="Olorunda">Olorunda</option>#}
+{#                                    <option value="Oriade">Oriade</option>#}
+{#                                    <option value="Orolu">Orolu</option>#}
+{#                                    <option value="Osogbo">Osogbo</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Oyo" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="af" id="af" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Afijio">Afijio</option>#}
+{#                                    <option value="Akinyele">Akinyele</option>#}
+{#                                    <option value="Atiba ">Atiba</option>#}
+{#                                    <option value="Atigbo">Atigbo</option>#}
+{#                                    <option value="Egbeda ">Egbeda</option>#}
+{#                                    <option value="IbadanCentral">IbadanCentral</option>#}
+{#                                    <option value="Ibadan North">Ibadan North</option>#}
+{#                                    <option value="Ibadan North West">Ibadan North West</option>#}
+{#                                    <option value="Ibadan South East ">Ibadan South East</option>#}
+{#                                    <option value="Ibadan South West">Ibadan South West</option>#}
+{#                                    <option value="Ibarapa Central">Ibarapa Central</option>#}
+{#                                    <option value="Ibarapa East">Ibarapa East</option>#}
+{#                                    <option value="Ibarapa North">Ibarapa North</option>#}
+{#                                    <option value="Ido ">Ido</option>#}
+{#                                    <option value="Irepo">Irepo</option>#}
+{#                                    <option value="Iseyin ">Iseyin</option>#}
+{#                                    <option value="Itesiwaju">Itesiwaju</option>#}
+{#                                    <option value="Iwajowa">Iwajowa</option>#}
+{#                                    <option value="Kajola">Kajola</option>#}
+{#                                    <option value="Lagelu Ogbomosho North">Lagelu Ogbomosho North</option>#}
+{#                                    <option value="Ogbmosho South">Ogbmosho South</option>#}
+{#                                    <option value="Ogo Oluwa">Ogo Oluwa</option>#}
+{#                                    <option value="Olorunsogo">Olorunsogo</option>#}
+{#                                    <option value="Oluyole">Oluyole</option>#}
+{#                                    <option value="Ona-Ara">Ona-Ara</option>#}
+{#                                    <option value="Orelope">Orelope</option>#}
+{#                                    <option value="Ori Ire">Ori Ire</option>#}
+{#                                    <option value="Oyo East">Oyo East</option>#}
+{#                                    <option value="Oyo West">Oyo West</option>#}
+{#                                    <option value="Saki East ">Saki East</option>#}
+{#                                    <option value="Saki West">Saki West</option>#}
+{#                                    <option value="Surulere">Surulere</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Plateau" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="ag" id="ag" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Barikin Ladi">Barikin Ladi</option>#}
+{#                                    <option value="Bassa">Bassa</option>#}
+{#                                    <option value="Bokkos ">Bokkos</option>#}
+{#                                    <option value="Jos East">Jos East</option>#}
+{#                                    <option value="Jos North ">Jos North</option>#}
+{#                                    <option value="Jos South">Jos South</option>#}
+{#                                    <option value="Kanam">Kanam</option>#}
+{#                                    <option value="Kanke">Kanke</option>#}
+{#                                    <option value="Langtang North">Langtang North</option>#}
+{#                                    <option value="Langtang South">Langtang South</option>#}
+{#                                    <option value="Mangu">Mangu</option>#}
+{#                                    <option value="Mikang">Mikang</option>#}
+{#                                    <option value="Pankshin">Pankshin</option>#}
+{#                                    <option value="Qua'an Pan ">Qua'an Pan</option>#}
+{#                                    <option value="Riyom">Riyom</option>#}
+{#                                    <option value="Shendam ">Shendam</option>#}
+{#                                    <option value="Wase">Wase</option>#}
+{#                                    <option value="Muya">Muya</option>#}
+{#                                    <option value="Pailoro">Pailoro</option>#}
+{#                                    <option value="Rafi">Rafi</option>#}
+{#                                    <option value="Rijau">Rijau</option>#}
+{#                                    <option value="Shiroro">Shiroro</option>#}
+{#                                    <option value="Suleja">Suleja</option>#}
+{#                                    <option value="Tafa">Tafa</option>#}
+{#                                    <option value="Wushishi">Wushishi</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Rivers" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="ah" id="ah" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Abua/Odual">Abua/Odual</option>#}
+{#                                    <option value="Ahoada East">Ahoada East</option>#}
+{#                                    <option value="Ahoada West ">Ahoada West</option>#}
+{#                                    <option value="Akuku Toru">Akuku Toru</option>#}
+{#                                    <option value="Andoni ">Andoni</option>#}
+{#                                    <option value="Asari-Toru">Asari-Toru</option>#}
+{#                                    <option value="Bonny">Bonny</option>#}
+{#                                    <option value="Degema">Degema</option>#}
+{#                                    <option value="Emohua">Emohua</option>#}
+{#                                    <option value="Eleme">Eleme</option>#}
+{#                                    <option value="Etche">Etche</option>#}
+{#                                    <option value="Gokana">Gokana</option>#}
+{#                                    <option value="Ikwerre">Ikwerre</option>#}
+{#                                    <option value="Khana ">Khana</option>#}
+{#                                    <option value="Obia/Akpor">Obia/Akpor</option>#}
+{#                                    <option value="Ogba/Egbema/Ndoni ">Ogba/Egbema/Ndoni</option>#}
+{#                                    <option value="Ogu/Bolo">Ogu/Bolo</option>#}
+{#                                    <option value="Okrika">Okrika</option>#}
+{#                                    <option value="Omumma">Omumma</option>#}
+{#                                    <option value="Opobo/Nkoro">Opobo/Nkoro</option>#}
+{#                                    <option value="Oyigbo">Oyigbo</option>#}
+{#                                    <option value="Port-Harcourt">Port-Harcourt</option>#}
+{#                                    <option value="Tai">Tai</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Sokoto" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="ai" id="ai" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Binji">Binji</option>#}
+{#                                    <option value="Bodinga">Bodinga</option>#}
+{#                                    <option value="Dange-shnsi ">Dange-shnsi</option>#}
+{#                                    <option value="Gada">Gada</option>#}
+{#                                    <option value="Goronyo ">Goronyo</option>#}
+{#                                    <option value="Gudu">Gudu</option>#}
+{#                                    <option value="Gawabawa">Gawabawa</option>#}
+{#                                    <option value="Illela">Illela</option>#}
+{#                                    <option value="Isa">Isa</option>#}
+{#                                    <option value="Kware">Kware</option>#}
+{#                                    <option value="kebbe">kebbe</option>#}
+{#                                    <option value="Rabah">Rabah</option>#}
+{#                                    <option value="Sabon birni">Sabon birni</option>#}
+{#                                    <option value="Shagari ">Shagari</option>#}
+{#                                    <option value="Silame">Silame</option>#}
+{#                                    <option value="Sokoto North ">Sokoto North</option>#}
+{#                                    <option value="Sokoto South">Sokoto South</option>#}
+{#                                    <option value="Tambuwal">Tambuwal</option>#}
+{#                                    <option value="Tqngaza">Tqngaza</option>#}
+{#                                    <option value="Tureta">Tureta</option>#}
+{#                                    <option value="Wamako">Wamako</option>#}
+{#                                    <option value="Wurno">Wurno</option>#}
+{#                                    <option value="Yabo">Yabo</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Taraba" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="aj" id="aj" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Ardo-kola">Ardo-kola</option>#}
+{#                                    <option value="Bali">Bali</option>#}
+{#                                    <option value="Donga ">Donga</option>#}
+{#                                    <option value="Gashaka">Gashaka</option>#}
+{#                                    <option value="Cassol ">Cassol</option>#}
+{#                                    <option value="Ibi">Ibi</option>#}
+{#                                    <option value="Jalingo">Jalingo</option>#}
+{#                                    <option value="Karin-Lamido">Karin-Lamido</option>#}
+{#                                    <option value="Kurmi">Kurmi</option>#}
+{#                                    <option value="Lau">Lau</option>#}
+{#                                    <option value="Sardauna">Sardauna</option>#}
+{#                                    <option value="Takum">Takum</option>#}
+{#                                    <option value="Ussa">Ussa</option>#}
+{#                                    <option value="Wukari ">Wukari</option>#}
+{#                                    <option value="Yorro">Yorro</option>#}
+{#                                    <option value="Zing ">Zing</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Yobe" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="ak" id="ak" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Bade">Bade</option>#}
+{#                                    <option value="Bursari">Bursari</option>#}
+{#                                    <option value="Damaturu ">Damaturu</option>#}
+{#                                    <option value="Fika">Fika</option>#}
+{#                                    <option value="Fune ">Fune</option>#}
+{#                                    <option value="Geidam">Geidam</option>#}
+{#                                    <option value="Gujba">Gujba</option>#}
+{#                                    <option value="Gulani">Gulani</option>#}
+{#                                    <option value="Jakusko">Jakusko</option>#}
+{#                                    <option value="Karasuwa">Karasuwa</option>#}
+{#                                    <option value="Karawa">Karawa</option>#}
+{#                                    <option value="Machina">Machina</option>#}
+{#                                    <option value="Nangere">Nangere</option>#}
+{#                                    <option value="Nguru Potiskum ">Nguru Potiskum</option>#}
+{#                                    <option value="Tarmua">Tarmua</option>#}
+{#                                    <option value="Yunusari ">Yunusari</option>#}
+{#                                    <option value="Yusufari">Yusufari</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="clearfix"></div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group locs" id="Zamfara" style="display:none">#}
+{#                        <div class="col-md-12 inputGroupContainer">#}
+{#                            <div class="input-group">#}
+{#                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>#}
+{#                                <select class="form-control" name="al" id="al" required>#}
+{#                                    <option value="#">--- Select local Government -----</option>#}
+{#                                    <option value="Anka">Anka</option>#}
+{#                                    <option value="Bakura">Bakura</option>#}
+{#                                    <option value="Birnin Magaji ">Birnin Magaji</option>#}
+{#                                    <option value="Bukkuyum">Bukkuyum</option>#}
+{#                                    <option value="Bungudu ">Bungudu</option>#}
+{#                                    <option value="Gummi">Gummi</option>#}
+{#                                    <option value="Gusau">Gusau</option>#}
+{#                                    <option value="Kaura">Kaura</option>#}
+{#                                    <option value="Namoda">Namoda</option>#}
+{#                                    <option value="Maradun">Maradun</option>#}
+{#                                    <option value="Maru">Maru</option>#}
+{#                                    <option value="Shinkafi">Shinkafi</option>#}
+{#                                    <option value="Talata Mafara">Talata Mafara</option>#}
+{#                                    <option value="Tsafe ">Tsafe</option>#}
+{#                                    <option value="Zurmi">Zurmi</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="clearfix"></div>#}
+{#                    </div>#}
+{#                    <script>#}
+{#                        $(function () {#}
+{#                            $('#state').change(function () {#}
+{#                                $('.locs').hide();#}
+{#                                $('#' + $(this).val()).show();#}
+{#                            });#}
+{#                        });#}
+{#                    </script>#}
+                    <div class="form-group">
+                         <div class="col-md-12 inputGroupContainer">
+             		  	  <div class="input-group">
+                        <span class = "input-group-addon"><i class="glyphicon glyphicon-globe"></i> </span>
+                        <input type="text" name="local_govt" placeholder="Local govt" required class="form-control">
+                          </div>
+                         </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                      <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-th-list"></i> </span>
+                                <textarea class="form-control" rows="4" id="address" name="address"
+                                          placeholder="Enter your Address"></textarea>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <h4 class="w3-center w3-text-blue-gray" style="font-size: 23px;">  Account Information </h4>
+                    <hr>
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i> </span>
+                                <input type="text" name="username" placeholder="Username" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-pushpin"></i> </span>
+                                <input type="password" name="password" placeholder="password" required
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+
+
+                    <div class="w3-center" style="margin-top: 10px;">
+                        <input type="submit" value="Register"
+                               class="w3-blue-gray w3-hover-blue-gray w3-text-white w3-hover-text-white w3-btn">
+                    </div>
+                </form>
+            </div>
+            <div class="w3-center">
+                <a href="{% url 'doc_login' %}"
+                   class="w3-white w3-text-blue-gray w3-border w3-border-blue-gray w3-hover-text-blue-gray w3-btn">Login</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

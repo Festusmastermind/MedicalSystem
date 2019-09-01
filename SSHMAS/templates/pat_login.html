@@ -1,0 +1,62 @@
+{% extends 'ms.html' %}
+{% load static %}
+{% block head %}
+    <title> SSHMAS || Login </title>
+{% endblock %}
+<!--//header-->
+{% block content %}
+    <div class="login">
+
+        <div class="main-agileits  w3-border w3-round w3-border-white w3-white">
+            <div class="form-w3agile">
+                <h5 class="w3-center w3-text-blue-gray" style="font-size: 23px;"> Patient Login </h5>
+                <hr>
+
+                {% if errmsg %}
+                    <div class="well w3-red  w3-text-white">{{ errmsg }}</div>
+                {% endif %}
+
+                <form action="#" method="post" action="/pat_login/">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i> </span>
+                                <input type="text" name="username" placeholder="Username" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-pushpin"></i> </span>
+                                <input type="password" name="password" placeholder="password" required
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+
+                    <hr>
+
+
+                    <div class="w3-center" style="margin-top: 10px;">
+                        <input type="submit" value="Login"
+                               class="w3-blue-gray w3-hover-blue-gray w3-text-white w3-border w3-round w3-border-blue-gray w3-hover-text-white w3-btn">
+                    </div>
+                </form>
+            </div>
+            <div class="forg">
+                <a href="{% url 'forget_pass' %}"
+                   class="forg-left w3-btn w3-white w3-text-blue-gray w3-border w3-round w3-border-blue-gray w3-hover-text-blue-gray w3-border w3-border-blue-gray">Forgot
+                    Password</a>
+                <a href="{% url 'patient_reg' %}"
+                   class="forg-right w3-btn w3-text-blue-gray w3-border w3-round w3-border-blue-gray w3-white w3-hover-text-blue-gray w3-border w3-border-blue-gray">Register</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
